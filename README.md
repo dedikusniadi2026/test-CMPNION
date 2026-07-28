@@ -82,7 +82,7 @@ Repository:
 - **Tablet** — Collapsed sidebar, adjusted grid
 - **Mobile** — Drawer navigation, stacked cards, horizontal scroll table
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 src/
