@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Use class-based dark mode instead of system preference */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+
+  body {
+    @apply bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    @apply bg-blue-500/20 text-blue-900 dark:text-blue-100;
+  }
+
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+}
+
+@keyframes slaPulse {
+  0%, 100% {
+    box-shadow: inset 3px 0 0 0 #ef4444;
+  }
+  50% {
+    box-shadow: inset 3px 0 0 0 #ef4444, 0 0 8px rgba(239, 68, 68, 0.3);
+  }
+}
+
+.sla-breached {
+  animation: slaPulse 2s ease-in-out infinite;
+  border-left: 3px solid #ef4444;
+}
+
+/* Smooth transitions for theme switching */
+html {
+  transition: color-scheme 0.3s;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
