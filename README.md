@@ -16,6 +16,14 @@ The dashboard is designed for hotel staff who need a centralized interface to:
 
 The application uses a mock API layer to simulate real backend communication while demonstrating frontend architecture, state management, and user experience decisions.
 
+## Links
+
+Live Demo:
+[https://your-vercel-url.vercel.app](https://test-cmpnion.vercel.app/)
+
+Repository:
+[https://github.com/username/hotel-dashboard](https://github.com/dedikusniadi2026/test-CMPNION)
+
 ## Features
 
 ### Dashboard Overview
