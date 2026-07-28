@@ -238,19 +238,19 @@ bun test src/__tests__/utils.test.ts
 bun test --coverage
 ```
 
-### Deployment
+## Deployment
 
-The app builds to a static `dist/` folder and can be deployed to any static hosting:
+The application is deployed as a static frontend application.
 
-**Vercel** (recommended):
-```bash
-npx vercel --prod
-```
+Build output:
 
-**Netlify**:
-```bash
-npx netlify deploy --prod --dir=dist
-```
+dist/
+
+Supported platforms:
+
+- Vercel
+- Netlify
+- Static hosting providers
 
 No server-side runtime is required — the app is fully client-side. The mock API layer runs in the browser, so the built app works immediately without a backend.
 
@@ -282,6 +282,19 @@ Declarative animation API that integrates seamlessly with React. Used for page t
 
 ### Why Mock API Layer?
 Allows full development and testing without backend dependencies. The service layer is structured so swapping mock for real API requires minimal changes — just update the `api/` functions.
+
+
+## Next Day Improvements
+
+If given additional development time, I would improve:
+
+- Add authentication and role-based access
+- Replace mock API with real backend integration
+- Add WebSocket-based notifications
+- Improve test coverage
+- Add E2E testing
+- Add performance monitoring
+- Add server-side pagination for large datasets
 
 ## Future Improvements
 
