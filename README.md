@@ -1,8 +1,22 @@
-# 🏨 Hotel Service Management Dashboard
+# Hotel Service Management Dashboard
 
-A premium, production-quality Hotel Service Management Dashboard built with modern web technologies. Designed for hotel staff to manage guest service orders, track performance metrics, and maintain operational excellence.
+A modern Hotel Service Management Dashboard built with React, TypeScript, and scalable frontend architecture patterns.
+This project is a frontend implementation of a hotel staff dashboard that helps employees monitor guest service requests, manage order workflows, track SLA issues, and handle daily operations efficiently.
 
-## ✨ Features
+## Project Overview
+
+The dashboard is designed for hotel staff who need a centralized interface to:
+
+- Monitor current hotel operations
+- View pending guest requests
+- Search and filter service orders
+- Process order lifecycle changes
+- Identify SLA violations
+- Handle failed payment situations
+
+The application uses a mock API layer to simulate real backend communication while demonstrating frontend architecture, state management, and user experience decisions.
+
+## Features
 
 ### Dashboard Overview
 - **6 Key Metrics Cards** — Active Guests, Pending Orders, Revenue Today, Completed Orders, Average Order Value, Top Selling Service
@@ -97,7 +111,68 @@ src/
 5. UI state (filters, theme) flows through Zustand store
 6. URL search params sync with filter state for shareable URLs
 
-## 🛠️ Tech Stack
+## Technical Trade-offs
+
+### Mock API Instead of Backend
+
+Decision:
+The assignment focuses on frontend engineering, therefore a mock API layer was used.
+Benefits:
+- Faster development
+- Independent frontend workflow
+- Easy backend replacement
+
+### Client-side Filtering
+Decision:
+Filtering is handled on the client because the dataset is small.
+
+For production scale:
+- Move filtering and pagination server-side
+- Add database indexing
+- Optimize API queries
+
+### Zustand Instead of Redux
+Decision:
+The application only requires lightweight UI state management.
+Zustand provides:
+- Less boilerplate
+- Simple API
+- Good performance
+
+## API & Data Approach
+The application uses a mock API service layer to simulate backend communication.
+Architecture:
+
+Component
+↓
+Custom Hooks
+↓
+TanStack Query
+↓
+API Service Layer
+↓
+Mock API
+
+The mock API provides:
+
+- Simulated network delay
+- Random request failures
+- Loading states
+- Error handling
+- Retry behaviour
+- Optimistic updates
+
+For production integration, the mock functions can be replaced with REST API calls without changing the component layer.
+
+## 📝 Assumptions
+
+- Hotel staff already have access to the dashboard
+- Authentication is outside the scope of this assignment
+- Data is currently simulated through mock services
+- Order volume is assumed to be manageable on the client side
+- Backend validation and permissions would be handled server-side
+
+## Tech Stack
 
 | Technology | Purpose |
 |-----------|---------|
@@ -117,7 +192,7 @@ src/
 | **dayjs** | Date Formatting |
 | **clsx + tailwind-merge** | Classname Utilities |
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Bun](https://bun.sh/) v1.0+ installed
@@ -183,7 +258,7 @@ No server-side runtime is required — the app is fully client-side. The mock AP
 | `bun run lint` | Run ESLint |
 | `bun run test` | Run unit tests with Bun test runner |
 
-## 🎨 Design Decisions
+## Design Decisions
 
 ### Why TailwindCSS over CSS-in-JS?
 Performance-first approach with zero runtime cost. Tailwind's utility classes enable rapid prototyping while maintaining consistency through design tokens.
@@ -200,7 +275,7 @@ Declarative animation API that integrates seamlessly with React. Used for page t
 ### Why Mock API Layer?
 Allows full development and testing without backend dependencies. The service layer is structured so swapping mock for real API requires minimal changes — just update the `api/` functions.
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - [ ] **Authentication & Authorization** — Login flow with role-based access (staff, admin, manager)
 - [ ] **Real WebSocket Connection** — Replace simulated real-time with actual WebSocket/server-sent events
